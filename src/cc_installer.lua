@@ -8,7 +8,7 @@ local function download_self()
 end
 
 local function setup()
-    if(pcall(install_github()))
+    if pcall(install_github())
     then
         print("Installed github")
     else
