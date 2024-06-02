@@ -17,6 +17,8 @@ local function setup()
     --    Save installer to root
     fs.delete("cc_installer.lua")
     fs.copy("cc_scripts/src/cc_installer.lua", "cc_installer.lua")
+    fs.delete("basalt_test.lua")
+    fs.copy("cc_scripts/src/basalt_test.lua", "basalt_test.lua")
 
     print("Installing github")
     local ok, err = pcall(install_github)
