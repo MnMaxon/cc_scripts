@@ -1,6 +1,6 @@
 local basalt = require("basalt")
 
-local function basalt_test()
+local function test()
     local frame = basalt.createFrame()
     local button = frame --> Basalt returns an instance of the object on most methods, to make use of "call-chaining"
             :addButton() --> This is an example of call chaining
@@ -14,4 +14,4 @@ local function basalt_test()
     basalt.autoUpdate()
 end
 
-setup()
+test()
