@@ -8,11 +8,14 @@ local function download_self()
 end
 
 local function setup()
+    print("Installing github")
     local ok, err = pcall(install_github)
     if ok then print("Installed github")
     else print("Failed to install github - I hope you have it installed already!")
     end
+    print("Downloading self")
     download_self()
+    copy("cc_scripts/src/cc_installer.lua", "cc_installer.lua")
 end
 
 setup()
