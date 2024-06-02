@@ -15,7 +15,7 @@ local function setup()
     end
     print("Downloading self")
     download_self()
-    copy("cc_scripts/src/cc_installer.lua", "cc_installer.lua")
+    fs.copy("cc_scripts/src/cc_installer.lua", "cc_installer.lua")
 end
 
 setup()
