@@ -1,5 +1,3 @@
-require("fs")
-
 local function install_github()
     shell.run("pastebin run p8PJVxC4")
 end
