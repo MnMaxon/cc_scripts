@@ -2,11 +2,12 @@
 Lua
 
 
-COMPUTERCRAFT SETUP
+COMPUTERCRAFT SETUP:
+pastebin run enmU92Qg
 
-Download ComputerCraft GitHub:
+Relies on ComputerCraft-GitHub:
+(downloaded as part of pastebin run above)
 https://github.com/eric-wieser/computercraft-github
-pastebin run p8PJVxC4
 
 PROJECT SETUP
 
