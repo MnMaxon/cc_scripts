@@ -32,15 +32,17 @@ local function get_stored_map()
     for slot, item in pairs(storage.list()) do
         --print(("%d x %s in slot %d"):format(item.count, item.name, slot))
         name = item.displayName
-        cat_and_name = utils.split_str(name, ".")
-        if #cat_and_name == 2 then
-            cat = cat_and_name[1]
-            name = cat_and_name[2]
-        else
-            cat = "Misc"
-            name = cat_and_name[1]
+        if name ~= nil then
+            cat_and_name = utils.split_str(name, ".")
+            if #cat_and_name == 2 then
+                cat = cat_and_name[1]
+                name = cat_and_name[2]
+            else
+                cat = "Misc"
+                name = cat_and_name[1]
+            end
+            print(cat .. " ... " .. name)
         end
-        print(cat .. " ... " .. name)
     end
 end
 
