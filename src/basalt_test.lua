@@ -22,6 +22,15 @@ local function save_categories(categories)
     h.close()
 end
 
+function contains(table, element)
+  for _, value in pairs(table) do
+    if value == element then
+      return true
+    end
+  end
+  return false
+end
+
 local function test()
     local frame = basalt.createFrame()
     local title_label = frame
@@ -124,7 +133,7 @@ local function test()
                 if cat == "" then
                     basalt.debug("Category cannot be empty")
                     return
-                elseif utils.contains(categories, cat) then
+                elseif contains(categories, cat) then
                     basalt.debug("Category already exists")
                     return
                 end
