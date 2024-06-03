@@ -24,7 +24,7 @@ end
 
 local function update_categories(dropdown)
     local function remove()
-        dropdown:removeItem(0)
+        dropdown:removeItem(1)
     end
     -- repeat until error
     while true do
@@ -120,7 +120,8 @@ local function test()
             :onClick(
             function()
                 -- TODO
-                basalt.debug("I got clicked!")
+                local cat = cat_dropdown.getSelected()
+                basalt.debug("Removing category " .. cat)
             end)
     local category_input = frame
             :addInput()
