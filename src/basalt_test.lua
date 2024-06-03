@@ -28,9 +28,9 @@ local function update_categories(dropdown)
     for _, cat in ipairs(get_categories()) do
         dropdown:addItem(cat)
     end
-    if val ~= nil then
-        dropdown:selectItem(val)
-    end
+    --if val ~= nil then
+    --dropdown:selectItem(val)
+    --end
 end
 
 local function test()
