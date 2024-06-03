@@ -4,6 +4,7 @@ Lua
 
 COMPUTERCRAFT SETUP:
 pastebin run enmU92Qg
+run: cc_installer
 
 Relies on ComputerCraft-GitHub:
 (downloaded as part of pastebin run above)
