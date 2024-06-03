@@ -43,15 +43,10 @@ local function test()
     local cat_dropdown = frame
             :addDropdown()
             :setPosition(COL1, 6)
-    --:addItem("Item 1")
-    --:addItem("Item 2", colors.yellow)
-    --:addItem("Item 3", colors.yellow, colors.green)
             :onChange(
             function(self, item)
                 basalt.debug("Selected item: ", item.text)
             end)
-
-    --update_categories(cat_dropdown)
     update_categories(cat_dropdown)
     local spatial_label = frame
             :addLabel()
@@ -121,7 +116,7 @@ local function test()
                     end
                 end
                 save_categories(categories)
-                --update_categories(cat_dropdown)
+                update_categories(cat_dropdown)
             end)
     local category_input = frame
             :addInput()
