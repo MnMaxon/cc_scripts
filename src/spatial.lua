@@ -24,7 +24,13 @@ local function get_storage()
 end
 
 local function get_io_port()
-    return peripheral.wrap("bottom")
+    -- name contains ae2:spatial_io_port
+    local names = peripheral.getNames()
+    for _, name in ipairs(names) do
+        if string.find(name, "ae2:spatial_io_port") then
+            return peripheral.wrap(name)
+        end
+    end
 end
 
 local function remove_active()
