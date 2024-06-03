@@ -119,7 +119,18 @@ local function test()
             :onClick(
             function()
                 -- TODO
-                basalt.debug("Adding category" .. category_input.getValue())
+                local cat = category_input.getValue()
+                local categories = get_categories()
+                if cat == "" then
+                    basalt.debug("Category cannot be empty")
+                    return
+                elseif utils.contains(categories, cat) then
+                    basalt.debug("Category already exists")
+                    return
+                end
+                basalt.debug("Adding category " .. category_input.getValue())
+                table.insert(categories, cat)
+                save_categories(categories)
             end)
 
     basalt.autoUpdate()
