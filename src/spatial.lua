@@ -90,9 +90,9 @@ local function test()
         local spatial_ports = {}
         for cat, items in pairs(stored_table) do
             table.insert(categories, cat)
-            if selected_cat ~= nil and cat == selected_cat.text then
-                spatial_ports = items
-            end
+        end
+        if selected_cat ~= nil then
+            spatial_ports = stored_table[selected_cat.text]
         end
         update_dropdown(cat_dropdown, categories)
         update_dropdown(spatial_dropdown, spatial_ports)
