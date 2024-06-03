@@ -22,6 +22,13 @@ local function save_categories(categories)
     h.close()
 end
 
+local function update_categories(dropdown)
+    dropdown:clearItems()
+    for _, cat in ipairs(get_categories()) do
+        dropdown:addItem(cat)
+    end
+end
+
 local function test()
     local frame = basalt.createFrame()
     local title_label = frame
@@ -43,9 +50,6 @@ local function test()
             function(self, item)
                 basalt.debug("Selected item: ", item.text)
             end)
-    for _, cat in ipairs(get_categories()) do
-        cat_dropdown:addItem(cat)
-    end
     local spatial_label = frame
             :addLabel()
             :setText("Spatial Port: ")
@@ -131,6 +135,7 @@ local function test()
                 basalt.debug("Adding category " .. category_input.getValue())
                 table.insert(categories, cat)
                 save_categories(categories)
+                update_categories(cat_dropdown)
             end)
 
     basalt.autoUpdate()
