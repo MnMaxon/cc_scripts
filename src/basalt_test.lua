@@ -32,8 +32,8 @@ local function update_categories(dropdown)
     -- repeat until error
     --local all = dropdown.getAll()
     --for _ in pairs(all) do dropdown:removeItem(i) end
-    dropdown.base = basalt.getObject("List")(name, basalt)
-    dropdown.removeItem("t2")
+    --dropdown.base = basalt.getObject("List")(name, basalt)
+    dropdown:removeItem("t2")
     add_categories(dropdown)
 end
 
