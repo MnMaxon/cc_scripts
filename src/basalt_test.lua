@@ -23,12 +23,14 @@ local function save_categories(categories)
 end
 
 local function update_categories(dropdown)
-    local function remove()
-        dropdown:removeItem(1)
+    local function remove(i)
+        dropdown:removeItem(i)
     end
     -- repeat until error
+    local i = 1
     while true do
-        local ok, err = pcall(remove)
+        local ok, err = pcall(remove, i)
+        i = i + 1
         if not ok then
             break
         end
