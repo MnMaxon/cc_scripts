@@ -22,39 +22,41 @@ local function update_dropdown(dropdown, vals)
     end
 end
 
-local function find_peripheral(name)
-    local names = peripheral.getNames()
-    for _, n in ipairs(names) do
-        if string.find(n, name) then
-            return peripheral.wrap(n)
-        end
-    end
-    return nil
-end
+--local function find_peripheral(name)
+--    local names = peripheral.getNames()
+--    for _, n in ipairs(names) do
+--        if string.find(n, name) then
+--            return peripheral.wrap(n)
+--        end
+--    end
+--    return nil
+--end
 
 local function get_io_port()
-    return find_peripheral("ae2:spatial_io_port")
+    --return find_peripheral("ae2:spatial_io_port")
+    -- Only top and left are working correctly
+    return peripheral.wrap("top")
 end
 
 local function get_storage()
-    return find_peripheral("minecraft:barrel")
+    --return find_peripheral("minecraft:barrel")
+    -- Only top and left are working correctly
+    return find_peripheral.wrap("left")
 end
 
-local function remove_active()
-    local storage = get_storage()
+local function re_insert_io()
     local io_port = get_io_port()
-    local found_slot = nil
-    for slot, item in pairs(io_port.list()) do
-        --print(("%d x %s in slot %d"):format(item.count, item.name, slot))
-        basalt.debug(("%d x %s in slot %d"):format(item.count, item.name, slot))
-        found_slot = slot
-    end
-    if found_slot ~= nil then
-        io_port.pushItems(peripheral.getName(storage), found_slot)
-        return true
-    end
-    return false
-    --io_port.pushItems()
+    io_port.pushItems("left", 2)
+end
+local function extract_io()
+    local io_port = get_io_port()
+    io_port.pushItems("top", 2)
+end
+
+local function pulse()
+    redstone.setOutput("right", true)
+    os.sleep(0.05)
+    redstone.setOutput("right", false)
 end
 
 local function get_stored_table()
@@ -115,7 +117,7 @@ local function test()
             end)
     load_dropdowns = function()
         if get_io_port() == nil then
-            basalt.debug("No IO port found below computer")
+            basalt.debug("No IO port found left of computer")
             return
         end
         if get_storage() == nil then
@@ -163,8 +165,8 @@ local function test()
             :setText("Unload")
             :onClick(
             function()
-                -- TODO
-                remove_active()
+                extract_io()
+                pulse()
             end)
     local reload_button = frame
             :addButton()
