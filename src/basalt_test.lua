@@ -23,7 +23,17 @@ local function save_categories(categories)
 end
 
 local function update_categories(dropdown)
-    dropdown:clearItems()
+    dropdown:removeItem(0)
+    dropdown:removeItem(0)
+    dropdown:removeItem(0)
+    dropdown:removeItem(0)
+    dropdown:removeItem(0)
+    dropdown:removeItem(0)
+    dropdown:removeItem(0)
+    dropdown:removeItem(0)
+    dropdown:removeItem(0)
+    dropdown:removeItem(0)
+    dropdown:removeItem(0)
     for _, cat in ipairs(get_categories()) do
         dropdown:addItem(cat)
     end
