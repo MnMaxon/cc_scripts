@@ -27,8 +27,9 @@ local function get_io_port()
     return peripheral.wrap("top")
 end
 
-local function get_stored_map()
+local function get_stored_table()
     local storage = get_storage()
+    local categories = {}
     for slot, item in pairs(storage.list()) do
         local name = storage.getItemDetail(slot).displayName
         print(("%d x %s %s in slot %d"):format(item.count, item.name,name, slot))
@@ -41,9 +42,11 @@ local function get_stored_map()
                 cat = "Misc"
                 name = cat_and_name[1]
             end
-            print(cat .. " ... " .. name)
+            categories[cat] = categories[cat] or {}
+            table.insert(categories[cat], name)
         end
     end
+    return categories
 end
 
 local function test()
@@ -80,9 +83,19 @@ local function test()
                 basalt.debug("Selected item: ", item.text)
             end)
     local function load_dropdowns()
-        get_stored_map()
+        local stored_table = get_stored_table()
         --local categories = get_categories()
-        --update_dropdown(cat_dropdown, categories)
+        local selected_cat = cat_dropdown.getValue()
+        local categories = {}
+        local spatial_ports = {}
+        for cat, items in pairs(stored_table) do
+            table.insert(categories, cat)
+            if selected_cat ~= nil and cat == selected_cat.text then
+                spatial_ports = items
+            end
+        end
+        update_dropdown(cat_dropdown, categories)
+        update_dropdown(spatial_dropdown, spatial_ports)
         --local val = cat_dropdown.getValue()
         --if val == nil then
         --    return
@@ -124,5 +137,5 @@ local function test()
     basalt.autoUpdate()
 end
 
---test()
-get_stored_map()
+test()
+--get_stored_map()
