@@ -120,14 +120,8 @@ local function test()
             :onClick(
             function()
                 -- TODO
-                local table_value = cat_dropdown.getValue()
-                for i, v in ipairs(table_value) do
-                    basalt.debug("Removing category " .. i)
-                    basalt.debug("Removing v " .. v)
-                end
-
-                --local cat = cat_dropdown.getValue()
-                --basalt.debug("Removing category " )
+                local val = cat_dropdown.getValue()
+                basalt.debug("Removing category " .. val.text)
             end)
     local category_input = frame
             :addInput()
