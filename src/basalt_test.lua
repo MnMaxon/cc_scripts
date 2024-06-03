@@ -23,17 +23,18 @@ local function save_categories(categories)
 end
 
 local function update_categories(dropdown)
-    dropdown:removeItem(0)
-    dropdown:removeItem(0)
-    dropdown:removeItem(0)
-    dropdown:removeItem(0)
-    dropdown:removeItem(0)
-    dropdown:removeItem(0)
-    dropdown:removeItem(0)
-    dropdown:removeItem(0)
-    dropdown:removeItem(0)
-    dropdown:removeItem(0)
-    dropdown:removeItem(0)
+    local function remove()
+        dropdown:removeItem(0)
+    end
+    -- repeat until error
+    while true do
+        local ok, err = pcall(remove)
+        if not ok then
+            break
+        end
+        --basalt.debug("Error updating categories: ", err)
+    end
+
     for _, cat in ipairs(get_categories()) do
         dropdown:addItem(cat)
     end
