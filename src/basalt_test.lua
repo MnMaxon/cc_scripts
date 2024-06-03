@@ -25,9 +25,7 @@ end
 local function update_categories(dropdown)
     -- repeat until error
     local all = dropdown.getAll()
-    for i, _ in ipairs(all) do
-        dropdown:removeItem(i)
-    end
+    for _ in pairs(all) do dropdown:removeItem(i) end
 end
 
 local function test()
@@ -119,11 +117,12 @@ local function test()
                 for i, cat in ipairs(categories) do
                     if cat == val.text then
                         table.remove(categories, i)
+                        basalt.debug("Removed category " .. val.text)
                         break
                     end
                 end
                 save_categories(categories)
-                update_categories(cat_dropdown)
+                --update_categories(cat_dropdown)
             end)
     local category_input = frame
             :addInput()
