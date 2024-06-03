@@ -101,6 +101,15 @@ local function test()
                 load_dropdowns()
             end)
     load_dropdowns = function()
+        if get_io_port() == nil then
+            basalt.debug("No IO port found below computer")
+            return
+        end
+        if get_storage() == nil then
+            basalt.debug("No storage found above computer")
+            return
+        end
+
         local stored_table = get_stored_table()
         --local categories = get_categories()
         local selected_cat = cat_dropdown.getValue()
