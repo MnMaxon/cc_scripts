@@ -36,8 +36,9 @@ local function update_categories(dropdown)
                     dropdown:selectItem(i)
                     break
                 end
+            end
+            --dropdown:selectItem(val)
         end
-    --dropdown:selectItem(val)
     end
 end
 
