@@ -66,6 +66,7 @@ local function test()
             :onChange(
             function(self, item)
                 basalt.debug("Selected item: ", item.text)
+                load_dropdowns()
             end)
     local spatial_label = frame
             :addLabel()
@@ -81,6 +82,7 @@ local function test()
             :onChange(
             function(self, item)
                 basalt.debug("Selected item: ", item.text)
+                load_dropdowns()
             end)
     local function load_dropdowns()
         local stored_table = get_stored_table()
