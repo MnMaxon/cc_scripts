@@ -19,6 +19,31 @@ local function update_dropdown(dropdown, vals)
     end
 end
 
+local function get_storage()
+    return peripheral.wrap("top")
+end
+
+local function get_io_port()
+    return peripheral.wrap("top")
+end
+
+local function get_stored_map()
+    local storage = get_storage()
+    for slot, item in pairs(chest.list()) do
+        print(("%d x %s in slot %d"):format(item.count, item.name, slot))
+        name = item.displayName
+        cat_and_name = utils.split_str(name, ".")
+        if #cat_and_name == 2 then
+            cat = cat_and_name[1]
+            name = cat_and_name[2]
+        else
+            cat = "Misc"
+            name = cat_and_name[1]
+        end
+        print(cat .. " ... " .. name)
+    end
+end
+
 local function test()
     local frame = basalt.createFrame()
     local title_label = frame
@@ -46,13 +71,24 @@ local function test()
     local spatial_dropdown = frame
             :addDropdown()
             :setPosition(COL1, 9)
-            :addItem("Item 1")
-            :addItem("Item 2", colors.yellow)
-            :addItem("Item 3", colors.yellow, colors.green)
+    --:addItem("Item 1")
+    --:addItem("Item 2", colors.yellow)
+    --:addItem("Item 3", colors.yellow, colors.green)
             :onChange(
             function(self, item)
                 basalt.debug("Selected item: ", item.text)
             end)
+    local function load_dropdowns()
+        get_stored_map()
+        --local categories = get_categories()
+        --update_dropdown(cat_dropdown, categories)
+        --local val = cat_dropdown.getValue()
+        --if val == nil then
+        --    return
+        --end
+        --local spatial_ports = get_spatial_ports(val.text)
+        --update_dropdown(spatial_dropdown, spatial_ports)
+    end
     local load_button = frame
             :addButton()
             :setPosition(COL1, 11)
@@ -71,71 +107,19 @@ local function test()
                 -- TODO
                 basalt.debug("I got clicked!")
             end)
-    local cat_up_button = frame
+    local reload_button = frame
             :addButton()
             :setPosition(COL2, 5)
-            :setText("^ Cat. Up")
+            :setText("Reload UI")
             :onClick(
             function()
                 -- TODO
                 basalt.debug("I got clicked!")
-            end)
-    local cat_down_button = frame
-            :addButton()
-            :setPosition(COL2, 9)
-            :setText("v Cat Dwn")
-            :onClick(
-            function()
-                -- TODO
-                basalt.debug("I got clicked!")
-            end)
-    local remove_button = frame
-            :addButton()
-            :setPosition(COL2, 13)
-            :setText("Remove Cat")
-            :onClick(
-            function()
-                local val = cat_dropdown.getValue()
-                basalt.debug("Removing category " .. val.text)
-                local categories = get_categories()
-                for i, cat in ipairs(categories) do
-                    if cat == val.text then
-                        table.remove(categories, i)
-                        basalt.debug("Removed category " .. val.text)
-                        break
-                    end
-                end
-                save_categories(categories)
-                update_categories(cat_dropdown)
-            end)
-    local category_input = frame
-            :addInput()
-            :setPosition(COL3, 5)
-            :setInputType("text")
-            :setDefaultText("Category")
-            :setInputLimit(20)
-    local add_button = frame
-            :addButton()
-            :setPosition(COL3, 7)
-            :setText("Add")
-            :onClick(
-            function()
-                -- TODO
-                local cat = category_input.getValue()
-                local categories = get_categories()
-                if cat == "" then
-                    basalt.debug("Category cannot be empty")
-                    return
-                elseif util.contains(categories, cat) then
-                    basalt.debug("Category already exists")
-                    return
-                end
-                basalt.debug("Adding category " .. category_input.getValue())
-                table.insert(categories, cat)
-                save_categories(categories)
-                update_categories(cat_dropdown)
+                load_dropdowns()
+                basalt.autoUpdate()
             end)
 
+    load_dropdowns()
     basalt.autoUpdate()
 end
 
