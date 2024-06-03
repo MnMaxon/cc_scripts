@@ -3,7 +3,8 @@ local utils = require("utils")
 local cat_path = "data/spatial_categories.txt"
 
 local COL1 = 2
-local COL2 = 18
+local COL2 = 16
+local COL3 = 30
 
 local function get_categories()
     if not fs.exists(cat_path) then
@@ -78,16 +79,19 @@ local function test()
                 -- TODO
                 basalt.debug("I got clicked!")
             end)
-    local category_input = frame
-            :addInput()
-            :setPosition(COL2, 5) -- TODO Move
-            :setInputType("text")
-            :setDefaultText("Category")
-            :setInputLimit(20)
-    local add_button = frame
+    local cat_up_button = frame
             :addButton()
-            :setPosition(COL2, 7) -- TODO Move
-            :setText("Add")
+            :setPosition(COL2, 5) -- TODO Move
+            :setText("^ Cat. Up")
+            :onClick(
+            function()
+                -- TODO
+                basalt.debug("I got clicked!")
+            end)
+    local cat_down_button = frame
+            :addButton()
+            :setPosition(COL2, 9) -- TODO Move
+            :setText("v Cat. Down")
             :onClick(
             function()
                 -- TODO
@@ -95,14 +99,29 @@ local function test()
             end)
     local remove_button = frame
             :addButton()
-            :setPosition(COL2, 11) -- TODO Move
-            :setText("Remove Cat")
+            :setPosition(COL2, 13) -- TODO Move
+            :setText("Remove Cat.")
             :onClick(
             function()
                 -- TODO
                 basalt.debug("I got clicked!")
             end)
     basalt.autoUpdate()
+    local category_input = frame
+            :addInput()
+            :setPosition(COL3, 5) -- TODO Move
+            :setInputType("text")
+            :setDefaultText("Category")
+            :setInputLimit(20)
+    local add_button = frame
+            :addButton()
+            :setPosition(COL3, 7) -- TODO Move
+            :setText("Add")
+            :onClick(
+            function()
+                -- TODO
+                basalt.debug("I got clicked!")
+            end)
 end
 
 test()
