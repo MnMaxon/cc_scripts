@@ -57,9 +57,18 @@ local function test()
             function(self, item)
                 basalt.debug("Selected item: ", item.text)
             end)
-    local unload_button = frame
+    local load_button = frame
             :addButton()
             :setPosition(2, 11) -- TODO Move
+            :setText("Load")
+            :onClick(
+            function()
+                -- TODO
+                basalt.debug("I got clicked!")
+            end)
+    local unload_button = frame
+            :addButton()
+            :setPosition(2, 15) -- TODO Move
             :setText("Unload")
             :onClick(
             function()
@@ -68,13 +77,13 @@ local function test()
             end)
     local category_input = frame
             :addInput()
-            :setPosition(2, 14) -- TODO Move
+            :setPosition(7, 5) -- TODO Move
             :setInputType("text")
             :setDefaultText("Category")
             :setInputLimit(20)
     local add_button = frame
             :addButton()
-            :setPosition(2, 14) -- TODO Move
+            :setPosition(7, 7) -- TODO Move
             :setText("Add")
             :onClick(
             function()
@@ -83,7 +92,7 @@ local function test()
             end)
     local remove_button = frame
             :addButton()
-            :setPosition(2, 17) -- TODO Move
+            :setPosition(7, 11) -- TODO Move
             :setText("Remove Category")
             :onClick(
             function()
