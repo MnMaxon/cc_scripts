@@ -1,4 +1,6 @@
-function split_str(inputstr, sep)
+util = {}
+
+function util.split_str(inputstr, sep)
   if sep == nil then
     sep = "%s"
   end
@@ -9,7 +11,7 @@ function split_str(inputstr, sep)
   return t
 end
 
-function contains(table, element)
+function util.contains(table, element)
   for _, value in pairs(table) do
     if value == element then
       return true
@@ -17,3 +19,5 @@ function contains(table, element)
   end
   return false
 end
+
+return util

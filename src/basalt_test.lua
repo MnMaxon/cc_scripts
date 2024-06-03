@@ -1,4 +1,5 @@
 local basalt = require("basalt")
+local utils = require("utils")
 local cat_path = "data/spatial_categories.txt"
 
 local COL1 = 2
@@ -6,7 +7,6 @@ local COL2 = 16
 local COL3 = 30
 
 local function get_categories()
-    local utils = require("utils")
     if not fs.exists(cat_path) then
         return {}
     end
@@ -20,15 +20,6 @@ local function save_categories(categories)
     local h = fs.open(cat_path, "w")
     h.write(table.concat(categories, ","))
     h.close()
-end
-
-function contains(table, element)
-  for _, value in pairs(table) do
-    if value == element then
-      return true
-    end
-  end
-  return false
 end
 
 local function test()
@@ -133,7 +124,7 @@ local function test()
                 if cat == "" then
                     basalt.debug("Category cannot be empty")
                     return
-                elseif contains(categories, cat) then
+                elseif util.contains(categories, cat) then
                     basalt.debug("Category already exists")
                     return
                 end
