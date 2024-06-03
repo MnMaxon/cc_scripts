@@ -41,7 +41,7 @@ end
 local function get_storage()
     --return find_peripheral("minecraft:barrel")
     -- Only top and left are working correctly
-    return find_peripheral.wrap("left")
+    return peripheral.wrap("left")
 end
 
 local function re_insert_io()
