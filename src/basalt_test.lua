@@ -27,7 +27,7 @@ local function update_categories(dropdown)
         dropdown:removeItem(i)
     end
     -- repeat until error
-    while dropdown.getAllItems()[1] do
+    while dropdown.getAll()[1] do
         remove(i)
     end
 end
