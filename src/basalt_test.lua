@@ -63,7 +63,7 @@ local function test()
             end)
     local load_button = frame
             :addButton()
-            :setPosition(COL1, 11) -- TODO Move
+            :setPosition(COL1, 11)
             :setText("Load")
             :onClick(
             function()
@@ -72,7 +72,7 @@ local function test()
             end)
     local unload_button = frame
             :addButton()
-            :setPosition(COL1, 15) -- TODO Move
+            :setPosition(COL1, 15)
             :setText("Unload")
             :onClick(
             function()
@@ -81,7 +81,7 @@ local function test()
             end)
     local cat_up_button = frame
             :addButton()
-            :setPosition(COL2, 5) -- TODO Move
+            :setPosition(COL2, 5)
             :setText("^ Cat. Up")
             :onClick(
             function()
@@ -90,8 +90,8 @@ local function test()
             end)
     local cat_down_button = frame
             :addButton()
-            :setPosition(COL2, 9) -- TODO Move
-            :setText("v Cat. Down")
+            :setPosition(COL2, 9)
+            :setText("v Cat Dwn")
             :onClick(
             function()
                 -- TODO
@@ -99,29 +99,30 @@ local function test()
             end)
     local remove_button = frame
             :addButton()
-            :setPosition(COL2, 13) -- TODO Move
-            :setText("Remove Cat.")
+            :setPosition(COL2, 13)
+            :setText("Remove Cat")
             :onClick(
             function()
                 -- TODO
                 basalt.debug("I got clicked!")
             end)
-    basalt.autoUpdate()
     local category_input = frame
             :addInput()
-            :setPosition(COL3, 5) -- TODO Move
+            :setPosition(COL3, 5)
             :setInputType("text")
             :setDefaultText("Category")
             :setInputLimit(20)
     local add_button = frame
             :addButton()
-            :setPosition(COL3, 7) -- TODO Move
+            :setPosition(COL3, 7)
             :setText("Add")
             :onClick(
             function()
                 -- TODO
                 basalt.debug("I got clicked!")
             end)
+
+    basalt.autoUpdate()
 end
 
 test()
