@@ -32,7 +32,7 @@ local function update_categories(dropdown)
     -- repeat until error
     --local all = dropdown.getAll()
     --for _ in pairs(all) do dropdown:removeItem(i) end
-    add_categories(dropdown)
+    --add_categories(dropdown)
 end
 
 local function test()
