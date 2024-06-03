@@ -20,26 +20,22 @@ local function update_dropdown(dropdown, vals)
     end
 end
 
-local function get_storage()
-    return peripheral.wrap(storage_name)
-end
-
-local function get_io_name()
+local function find_peripheral(name)
     local names = peripheral.getNames()
-    for _, name in ipairs(names) do
-        if string.find(name, "ae2:spatial_io_port") then
-            return name
+    for _, n in ipairs(names) do
+        if string.find(n, name) then
+            return peripheral.wrap(n)
         end
     end
     return nil
 end
 
 local function get_io_port()
-    local name = get_io_name()
-    if name == nil then
-        return nil
-    end
-    return peripheral.wrap(name)
+    return find_peripheral("ae2:spatial_io_port")
+end
+
+local function get_storage()
+    return find_peripheral("minecraft:barrel")
 end
 
 local function remove_active()
