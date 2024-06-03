@@ -23,7 +23,7 @@ local function save_categories(categories)
 end
 
 local function add_categories(dropdown)
-for _, cat in ipairs(get_categories()) do
+    for _, cat in ipairs(get_categories()) do
         dropdown:addItem(cat)
     end
 end
@@ -33,7 +33,7 @@ local function update_categories(dropdown)
     --local all = dropdown.getAll()
     --for _ in pairs(all) do dropdown:removeItem(i) end
     --dropdown.base = basalt.getObject("List")(name, basalt)
-    dropdown:removeItem("t2")
+    dropdown.removeItem("t2")
     add_categories(dropdown)
 end
 
@@ -156,8 +156,9 @@ local function test()
                 basalt.debug("Adding category " .. category_input.getValue())
                 table.insert(categories, cat)
                 save_categories(categories)
-                update_categories(cat_dropdown)
-                test()
+                cat_dropdown:removeItem(2)
+                --update_categories(cat_dropdown)
+                --test()
             end)
 
     basalt.autoUpdate()
