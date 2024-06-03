@@ -30,7 +30,6 @@ local function update_categories(dropdown)
         dropdown:addItem(cat)
         if val ~= nil and cat == val.text then
             dropdown:selectItem(i)
-            break
         end
     end
 end
