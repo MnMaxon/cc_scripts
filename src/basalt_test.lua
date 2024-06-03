@@ -24,7 +24,7 @@ end
 
 local function add_categories(dropdown)
 for _, cat in ipairs(get_categories()) do
-        cat_dropdown:addItem(cat)
+        dropdown:addItem(cat)
     end
 end
 
