@@ -24,7 +24,7 @@ local function get_storage()
 end
 
 local function get_io_port()
-    return peripheral.wrap("top")
+    return peripheral.wrap("bottom")
 end
 
 local function remove_active()
@@ -33,10 +33,11 @@ local function remove_active()
     local found_slot = nil
     for slot, item in pairs(io_port.list()) do
         --print(("%d x %s in slot %d"):format(item.count, item.name, slot))
+        basalt.debug(("%d x %s in slot %d"):format(item.count, item.name, slot))
         found_slot = slot
     end
     if found_slot ~= nil then
-        io_port.pushItems(storage.getName(), found_slot)
+        --io_port.pushItems(storage.getName(), found_slot)
         return true
     end
     return false
