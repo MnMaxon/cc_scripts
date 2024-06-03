@@ -11,7 +11,7 @@ local function test()
             :setPosition(1, 5)
     local cat_dropdown = frame
             :addDropdown()
-            :setPosition(1, 6)
+            :setPosition(2, 6)
             :addItem("Item 1")
             :addItem("Item 2", colors.yellow)
             :addItem("Item 3", colors.yellow, colors.green)
@@ -25,7 +25,7 @@ local function test()
             :setPosition(1, 8)
     local spatial_dropdown = frame
             :addDropdown()
-            :setPosition(1, 9)
+            :setPosition(2, 9)
             :addItem("Item 1")
             :addItem("Item 2", colors.yellow)
             :addItem("Item 3", colors.yellow, colors.green)
@@ -34,7 +34,7 @@ local function test()
                 basalt.debug("Selected item: ", item.text)
             end)
     local unload_button = frame:addButton()
-            :setPosition(2, 11) -- TODO Move
+            :setPosition(1, 11) -- TODO Move
             :setText("Unload")
             :onClick(
             function()
@@ -42,7 +42,7 @@ local function test()
                 basalt.debug("I got clicked!")
             end)
     local add_button = frame:addButton()
-            :setPosition(4, 14) -- TODO Move
+            :setPosition(1, 14) -- TODO Move
             :setText("Add")
             :onClick(
             function()
@@ -50,8 +50,8 @@ local function test()
                 basalt.debug("I got clicked!")
             end)
     local remove_button = frame:addButton()
-            :setPosition(4, 17) -- TODO Move
-            :setText("Remove")
+            :setPosition(1, 17) -- TODO Move
+            :setText("Remove Category")
             :onClick(
             function()
                 -- TODO
