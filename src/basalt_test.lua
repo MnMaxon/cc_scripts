@@ -63,7 +63,7 @@ local function test()
             end)
 
     for _, cat in ipairs(get_categories()) do
-        dropdown:addItem(cat)
+        cat_dropdown:addItem(cat)
     end
     --update_categories(cat_dropdown)
     local spatial_label = frame
