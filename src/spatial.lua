@@ -130,7 +130,6 @@ local function test()
             :onClick(
             function()
                 -- TODO
-                basalt.debug("I got clicked!")
                 load_dropdowns()
                 basalt.autoUpdate()
             end)
