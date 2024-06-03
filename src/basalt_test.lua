@@ -61,7 +61,11 @@ local function test()
             function(self, item)
                 basalt.debug("Selected item: ", item.text)
             end)
-    update_categories(cat_dropdown)
+
+    for _, cat in ipairs(get_categories()) do
+        dropdown:addItem(cat)
+    end
+    --update_categories(cat_dropdown)
     local spatial_label = frame
             :addLabel()
             :setText("Spatial Port: ")
@@ -119,9 +123,17 @@ local function test()
             :setText("Remove Cat")
             :onClick(
             function()
-                -- TODO
                 local val = cat_dropdown.getValue()
                 basalt.debug("Removing category " .. val.text)
+                local categories = get_categories()
+                for i, cat in ipairs(categories) do
+                    if cat == val.text then
+                        table.remove(categories, i)
+                        break
+                    end
+                end
+                save_categories(categories)
+                update_categories(cat_dropdown)
             end)
     local category_input = frame
             :addInput()
