@@ -89,9 +89,9 @@ local function test()
         local categories = {}
         local spatial_ports = {}
 
-        if #stored_table == 0 then
-            return
-        end
+        --if #stored_table == 0 then
+        --    return
+        --end
 
         for cat, items in pairs(stored_table) do
             table.insert(categories, cat)
