@@ -7,7 +7,6 @@ local cat_path = "data/spatial_categories.txt"
 local COL1 = 2
 local COL2 = 16
 local COL3 = 30
-local storage_name = "top"
 
 local function update_dropdown(dropdown, vals)
     local val = dropdown.getValue()
