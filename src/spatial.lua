@@ -135,6 +135,7 @@ local function test()
             :onClick(
             function()
                 -- TODO
+                remove_active()
             end)
     local reload_button = frame
             :addButton()
