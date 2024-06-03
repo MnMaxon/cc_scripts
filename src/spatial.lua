@@ -27,12 +27,21 @@ local function get_io_port()
     return peripheral.wrap("top")
 end
 
+local function remove_active()
+    local storage = get_storage()
+    local io_port = get_io_port()
+    for slot, item in pairs(io_port.list()) do
+        --print(("%d x %s in slot %d"):format(item.count, item.name, slot))
+        basalt.debug(("%d x %s in slot %d"):format(item.count, item.name, slot))
+    end
+    --io_port.pushItems()
+end
+
 local function get_stored_table()
     local storage = get_storage()
     local categories = {}
     for slot, item in pairs(storage.list()) do
         local name = storage.getItemDetail(slot).displayName
-        print(("%d x %s %s in slot %d"):format(item.count, item.name,name, slot))
         if name ~= nil then
             cat_and_name = utils.split_str(name, ".")
             if #cat_and_name == 2 then
@@ -67,7 +76,6 @@ local function test()
             :setPosition(COL1, 6)
             :onChange(
             function(self, item)
-                basalt.debug("Selected item: ", item.text)
                 load_dropdowns()
             end)
     local spatial_label = frame
@@ -83,7 +91,6 @@ local function test()
     --:addItem("Item 3", colors.yellow, colors.green)
             :onChange(
             function(self, item)
-                basalt.debug("Selected item: ", item.text)
                 load_dropdowns()
             end)
     load_dropdowns = function()
@@ -101,7 +108,7 @@ local function test()
             table.insert(categories, cat)
         end
         if selected_cat == nil then
-            selected_cat = {text = categories[1]}
+            selected_cat = { text = categories[1] }
         end
         spatial_ports = stored_table[selected_cat.text]
         update_dropdown(cat_dropdown, categories)
@@ -120,7 +127,6 @@ local function test()
             :onClick(
             function()
                 -- TODO
-                basalt.debug("I got clicked!")
             end)
     local unload_button = frame
             :addButton()
@@ -129,7 +135,6 @@ local function test()
             :onClick(
             function()
                 -- TODO
-                basalt.debug("I got clicked!")
             end)
     local reload_button = frame
             :addButton()
