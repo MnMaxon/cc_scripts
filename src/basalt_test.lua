@@ -2,6 +2,9 @@ local basalt = require("basalt")
 local utils = require("utils")
 local cat_path = "data/spatial_categories.txt"
 
+local COL1 = 2
+local COL2 = 18
+
 local function get_categories()
     if not fs.exists(cat_path) then
         return {}
@@ -28,10 +31,10 @@ local function test()
             :addLabel()
             :setText("Category: ")
             :setFontSize(1)
-            :setPosition(2, 5)
+            :setPosition(COL1, 5)
     local cat_dropdown = frame
             :addDropdown()
-            :setPosition(2, 6)
+            :setPosition(COL1, 6)
     --:addItem("Item 1")
     --:addItem("Item 2", colors.yellow)
     --:addItem("Item 3", colors.yellow, colors.green)
@@ -46,10 +49,10 @@ local function test()
             :addLabel()
             :setText("Spatial Port: ")
             :setFontSize(1)
-            :setPosition(2, 8)
+            :setPosition(COL1, 8)
     local spatial_dropdown = frame
             :addDropdown()
-            :setPosition(2, 9)
+            :setPosition(COL1, 9)
             :addItem("Item 1")
             :addItem("Item 2", colors.yellow)
             :addItem("Item 3", colors.yellow, colors.green)
@@ -59,7 +62,7 @@ local function test()
             end)
     local load_button = frame
             :addButton()
-            :setPosition(2, 11) -- TODO Move
+            :setPosition(COL1, 11) -- TODO Move
             :setText("Load")
             :onClick(
             function()
@@ -68,7 +71,7 @@ local function test()
             end)
     local unload_button = frame
             :addButton()
-            :setPosition(2, 15) -- TODO Move
+            :setPosition(COL1, 15) -- TODO Move
             :setText("Unload")
             :onClick(
             function()
@@ -77,13 +80,13 @@ local function test()
             end)
     local category_input = frame
             :addInput()
-            :setPosition(7, 5) -- TODO Move
+            :setPosition(COL2, 5) -- TODO Move
             :setInputType("text")
             :setDefaultText("Category")
             :setInputLimit(20)
     local add_button = frame
             :addButton()
-            :setPosition(7, 7) -- TODO Move
+            :setPosition(COL2, 7) -- TODO Move
             :setText("Add")
             :onClick(
             function()
@@ -92,8 +95,8 @@ local function test()
             end)
     local remove_button = frame
             :addButton()
-            :setPosition(7, 11) -- TODO Move
-            :setText("Remove Category")
+            :setPosition(COL2, 11) -- TODO Move
+            :setText("Remove Cat")
             :onClick(
             function()
                 -- TODO
