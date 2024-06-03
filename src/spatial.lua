@@ -24,7 +24,7 @@ local function get_storage()
 end
 
 local function get_io_port()
-    return peripheral.wrap("down")
+    return peripheral.wrap("bottom")
 end
 
 local function remove_active()
