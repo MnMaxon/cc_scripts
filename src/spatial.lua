@@ -33,12 +33,13 @@ local function remove_active()
     local found_slot = nil
     for slot, item in pairs(io_port.list()) do
         --print(("%d x %s in slot %d"):format(item.count, item.name, slot))
-        basalt.debug(("%d x %s in slot %d"):format(item.count, item.name, slot))
         found_slot = slot
     end
     if found_slot ~= nil then
         io_port.pushItems("up", found_slot)
+        return true
     end
+    return false
     --io_port.pushItems()
 end
 
