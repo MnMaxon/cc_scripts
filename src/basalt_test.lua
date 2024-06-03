@@ -1,5 +1,4 @@
 local basalt = require("basalt")
-local utils = require("utils")
 local cat_path = "data/spatial_categories.txt"
 
 local COL1 = 2
@@ -7,6 +6,7 @@ local COL2 = 16
 local COL3 = 30
 
 local function get_categories()
+    local utils = require("utils")
     if not fs.exists(cat_path) then
         return {}
     end
