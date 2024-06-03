@@ -22,10 +22,19 @@ local function save_categories(categories)
     h.close()
 end
 
+local function add_categories(dropdown)
+for _, cat in ipairs(get_categories()) do
+        cat_dropdown:addItem(cat)
+    end
+end
+
 local function update_categories(dropdown)
     -- repeat until error
-    local all = dropdown.getAll()
-    for _ in pairs(all) do dropdown:removeItem(i) end
+    --local all = dropdown.getAll()
+    --for _ in pairs(all) do dropdown:removeItem(i) end
+    dropdown.clear()
+    dropdown:removeItem(0)
+    add_categories(dropdown)
 end
 
 local function test()
@@ -50,10 +59,8 @@ local function test()
                 basalt.debug("Selected item: ", item.text)
             end)
 
-    for _, cat in ipairs(get_categories()) do
-        cat_dropdown:addItem(cat)
-    end
     --update_categories(cat_dropdown)
+    add_categories(cat_dropdown)
     local spatial_label = frame
             :addLabel()
             :setText("Spatial Port: ")
