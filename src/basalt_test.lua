@@ -29,11 +29,9 @@ local function update_categories(dropdown)
     -- repeat until error
     local i = 1
     while true do
-        local ok, err =dropdown:removeItem(i)
+        dropdown:removeItem(i)
         i = i + 1
-        if not ok then
-            break
-        end
+
         --basalt.debug("Error updating categories: ", err)
     end
 
