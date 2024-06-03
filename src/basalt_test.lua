@@ -22,16 +22,19 @@ local function save_categories(categories)
     h.close()
 end
 
-local function update_categories(dropdown)
+local function update_dropdown(dropdown, vals)
     local val = dropdown.getValue()
     dropdown:clear()
-    categories = get_categories()
-    for i, cat in ipairs(categories) do
+    for i, cat in ipairs(vals) do
         dropdown:addItem(cat)
         if val ~= nil and cat == val.text then
             dropdown:selectItem(i)
         end
     end
+end
+
+local function update_categories(dropdown)
+    update_dropdown(dropdown, get_categories())
 end
 
 local function test()
