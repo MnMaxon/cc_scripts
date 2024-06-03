@@ -30,7 +30,7 @@ end
 local function get_stored_map()
     local storage = get_storage()
     for slot, item in pairs(storage.list()) do
-        --print(("%d x %s in slot %d"):format(item.count, item.name, slot))
+        print(("%d x %s in slot %d"):format(item.count, item.name, slot))
         name = item.displayName
         if name ~= nil then
             cat_and_name = utils.split_str(name, ".")
