@@ -88,14 +88,18 @@ local function test()
         local selected_cat = cat_dropdown.getValue()
         local categories = {}
         local spatial_ports = {}
+
+        if #stored_table == 0 then
+            return
+        end
+
         for cat, items in pairs(stored_table) do
             table.insert(categories, cat)
         end
-        basalt.debug("selected_cat")
-        if selected_cat ~= nil then
-        basalt.debug("selected_cat not nil")
-            spatial_ports = stored_table[selected_cat.text]
+        if selected_cat == nil then
+            selected_cat = {text = categories[1]}
         end
+        spatial_ports = stored_table[selected_cat.text]
         update_dropdown(cat_dropdown, categories)
         update_dropdown(spatial_dropdown, spatial_ports)
         --local val = cat_dropdown.getValue()
