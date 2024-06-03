@@ -2,10 +2,10 @@ local basalt = require("basalt")
 
 local function test()
     local frame = basalt.createFrame()
-    local title_label = main:addLabel()
+    local title_label = frame:addLabel()
             :setText("Spatial Manager")
             :setFontSize(2)
-    local cat_label = main:addLabel()
+    local cat_label = frame:addLabel()
             :setText("Category: ")
             :setFontSize(2)
     local cat_dropdown = frame
