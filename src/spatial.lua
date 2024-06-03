@@ -62,7 +62,6 @@ local function test()
             function(self, item)
                 basalt.debug("Selected item: ", item.text)
             end)
-    update_categories(cat_dropdown)
     local spatial_label = frame
             :addLabel()
             :setText("Spatial Port: ")
