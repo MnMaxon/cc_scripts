@@ -119,7 +119,7 @@ local function test()
             :onClick(
             function()
                 -- TODO
-                basalt.debug("I got clicked!")
+                basalt.debug("Adding category" .. category_input.getValue())
             end)
 
     basalt.autoUpdate()
