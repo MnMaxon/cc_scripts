@@ -52,7 +52,7 @@ local function remove_active()
         found_slot = slot
     end
     if found_slot ~= nil then
-        io_port.pushItems(storage_name, found_slot)
+        storage.pullItems(get_io_name(), found_slot)
         return true
     end
     return false
