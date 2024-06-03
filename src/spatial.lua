@@ -80,7 +80,7 @@ local function get_stored_table()
     return categories
 end
 
-local function test()
+local function load_spatial_ui()
     local frame = basalt.createFrame()
     local load_dropdowns
 
@@ -157,7 +157,33 @@ local function test()
             :setText("Load")
             :onClick(
             function()
-                -- TODO
+                pulse()
+                extract_io()
+                local cat = cat_dropdown.getValue().text
+                local item = spatial_dropdown.getValue().text
+                local storage = get_storage()
+                local cat_and_name = cat .. "." .. item
+                if cat == "Misc" then
+                    cat_and_name = item
+                end
+                local slot = -1
+                for i = 1, storage.size() do
+                    local detail = storage.getItemDetail(i)
+                    if detail ~= nil and detail.displayName == cat_and_name
+                    then
+                        slot = i
+                        break
+                    end
+                end
+                if slot == -1 then
+                    basalt.debug("Item not found in storage")
+                    return
+                end
+                os.sleep(0.05)
+                storage.pushItems("top", slot)
+                pulse()
+                re_insert_io()
+                load_dropdowns()
             end)
     local unload_button = frame
             :addButton()
@@ -167,6 +193,7 @@ local function test()
             function()
                 pulse()
                 extract_io()
+                load_dropdowns()
             end)
     local reload_button = frame
             :addButton()
@@ -174,14 +201,12 @@ local function test()
             :setText("Reload UI")
             :onClick(
             function()
-                -- TODO
                 load_dropdowns()
-                basalt.autoUpdate()
             end)
 
     load_dropdowns()
     basalt.autoUpdate()
 end
 
-test()
+load_spatial_ui()
 --get_stored_map()
