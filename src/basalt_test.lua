@@ -27,16 +27,8 @@ local function update_categories(dropdown)
         dropdown:removeItem(i)
     end
     -- repeat until error
-    local i = 1
-    while true do
-        dropdown:removeItem(i)
-        i = i + 1
-
-        --basalt.debug("Error updating categories: ", err)
-    end
-
-    for _, cat in ipairs(get_categories()) do
-        dropdown:addItem(cat)
+    while dropdown.getAllItems()[1] do
+        remove(i)
     end
 end
 
