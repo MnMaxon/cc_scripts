@@ -12,6 +12,9 @@ local storage_name = "top"
 local function update_dropdown(dropdown, vals)
     local val = dropdown.getValue()
     dropdown:clear()
+    if vals == nil then
+        return
+    end
     for i, cat in pairs(vals) do
         dropdown:addItem(cat)
         if val ~= nil and cat == val.text then
