@@ -28,7 +28,7 @@ local function update_categories(dropdown)
     categories = get_categories()
     for i, cat in ipairs(categories) do
         dropdown:addItem(cat)
-        if val ~= nil & cat == val.text then
+        if val ~= nil and cat == val.text then
             dropdown:selectItem(i)
             break
         end
