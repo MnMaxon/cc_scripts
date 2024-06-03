@@ -91,7 +91,9 @@ local function test()
         for cat, items in pairs(stored_table) do
             table.insert(categories, cat)
         end
+        basalt.debug("selected_cat")
         if selected_cat ~= nil then
+        basalt.debug("selected_cat not nil")
             spatial_ports = stored_table[selected_cat.text]
         end
         update_dropdown(cat_dropdown, categories)
