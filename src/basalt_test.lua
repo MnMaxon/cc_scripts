@@ -127,7 +127,7 @@ local function test()
                 end
 
                 --local cat = cat_dropdown.getValue()
-                basalt.debug("Removing category " )
+                --basalt.debug("Removing category " )
             end)
     local category_input = frame
             :addInput()
