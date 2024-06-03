@@ -165,8 +165,8 @@ local function test()
             :setText("Unload")
             :onClick(
             function()
-                extract_io()
                 pulse()
+                extract_io()
             end)
     local reload_button = frame
             :addButton()
