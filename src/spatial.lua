@@ -122,4 +122,5 @@ local function test()
     basalt.autoUpdate()
 end
 
-test()
+--test()
+get_stored_map()
