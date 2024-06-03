@@ -23,12 +23,10 @@ local function save_categories(categories)
 end
 
 local function update_categories(dropdown)
-    local function remove(i)
-        dropdown:removeItem(i)
-    end
     -- repeat until error
-    while dropdown.getAll()[1] do
-        remove(i)
+    local all = dropdown.getAll()
+    for i, _ in ipairs(all) do
+        dropdown:removeItem(i)
     end
 end
 
