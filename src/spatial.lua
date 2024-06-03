@@ -52,7 +52,7 @@ local function remove_active()
         found_slot = slot
     end
     if found_slot ~= nil then
-        storage.pushItems(peripheral.getName(storage), found_slot)
+        io_port.pushItems(peripheral.getName(storage), found_slot)
         return true
     end
     return false
