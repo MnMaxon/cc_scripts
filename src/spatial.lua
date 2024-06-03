@@ -51,6 +51,8 @@ end
 
 local function test()
     local frame = basalt.createFrame()
+    local load_dropdowns
+
     local title_label = frame
             :addLabel()
             :setText("Spatial Manager")
@@ -84,7 +86,7 @@ local function test()
                 basalt.debug("Selected item: ", item.text)
                 load_dropdowns()
             end)
-    local function load_dropdowns()
+    load_dropdowns = function()
         local stored_table = get_stored_table()
         --local categories = get_categories()
         local selected_cat = cat_dropdown.getValue()
