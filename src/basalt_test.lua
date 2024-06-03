@@ -23,7 +23,7 @@ local function save_categories(categories)
 end
 
 local function update_categories(dropdown)
-    local val = cat_dropdown.getValue()
+    local val = dropdown.getValue()
     dropdown:clear()
     for _, cat in ipairs(get_categories()) do
         dropdown:addItem(cat)
