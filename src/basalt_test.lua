@@ -25,19 +25,12 @@ end
 local function update_categories(dropdown)
     local val = dropdown.getValue()
     dropdown:clear()
-    for _, cat in ipairs(get_categories()) do
+    categories = get_categories()
+    for i, cat in ipairs(categories) do
         dropdown:addItem(cat)
-    end
-    if val ~= nil then
-        val = val.text
-        if val ~= nil then
-            for i, item in ipairs(dropdown.items) do
-                if item.text == val then
-                    dropdown:selectItem(i)
-                    break
-                end
-            end
-            --dropdown:selectItem(val)
+        if val ~= nil & cat == val.text then
+            dropdown:selectItem(i)
+            break
         end
     end
 end
