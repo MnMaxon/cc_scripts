@@ -35,13 +35,13 @@ end
 local function get_io_port()
     --return find_peripheral("ae2:spatial_io_port")
     -- Only top and left are working correctly
-    return peripheral.wrap("top")
+    return peripheral.wrap("left")
 end
 
 local function get_storage()
     --return find_peripheral("minecraft:barrel")
     -- Only top and left are working correctly
-    return peripheral.wrap("left")
+    return peripheral.wrap("top")
 end
 
 local function re_insert_io()
