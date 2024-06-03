@@ -156,7 +156,7 @@ local function test()
                 table.insert(categories, cat)
                 save_categories(categories)
                 update_categories(cat_dropdown)
-                basalt.autoUpdate()
+                test()
             end)
 
     basalt.autoUpdate()
