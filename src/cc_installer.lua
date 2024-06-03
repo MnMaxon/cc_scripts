@@ -25,7 +25,7 @@ local function setup()
     --fs.copy("cc_scripts/src/spatial.lua", "spatial.lua")
 
     for _, file in ipairs(fs.list("cc_scripts/src")) do
-        fs.delete("cc_scripts/src/" .. file)
+        fs.delete(file)
     fs.copy("cc_scripts/src/" .. file, file)
     end
 
