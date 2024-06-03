@@ -7,6 +7,7 @@ local cat_path = "data/spatial_categories.txt"
 local COL1 = 2
 local COL2 = 16
 local COL3 = 30
+local storage_name = "top"
 
 local function update_dropdown(dropdown, vals)
     local val = dropdown.getValue()
@@ -20,7 +21,7 @@ local function update_dropdown(dropdown, vals)
 end
 
 local function get_storage()
-    return peripheral.wrap("top")
+    return peripheral.wrap(storage_name)
 end
 
 local function get_io_port()
@@ -43,7 +44,7 @@ local function remove_active()
         found_slot = slot
     end
     if found_slot ~= nil then
-        io_port.pushItems(storage, found_slot)
+        io_port.pushItems(storage_name, found_slot)
         return true
     end
     return false
