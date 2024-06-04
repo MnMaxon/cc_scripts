@@ -180,7 +180,7 @@ local function load_spatial_ui()
                     return
                 end
                 os.sleep(0.05)
-                storage.pushItems("top", slot)
+                storage.pushItems("left", slot)
                 pulse()
                 re_insert_io()
                 load_dropdowns()
