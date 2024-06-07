@@ -141,7 +141,7 @@ local function load_spatial_ui()
             selected_cat = { text = categories[1] }
         end
         spatial_ports = stored_table[selected_cat.text]
-        basalt.debug("Spatial ports: ", spatial_ports)
+        basalt.debug("Spatial port count: " .. #spatial_ports)
         update_dropdown(cat_dropdown, categories)
         update_dropdown(spatial_dropdown, spatial_ports)
         --local val = cat_dropdown.getValue()
