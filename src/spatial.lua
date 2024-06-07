@@ -126,7 +126,6 @@ local function load_spatial_ui()
 
         local stored_table = get_stored_table()
         --local categories = get_categories()
-        local selected_cat = cat_dropdown.getValue()
         local categories = {}
         local spatial_ports = {}
 
@@ -137,19 +136,12 @@ local function load_spatial_ui()
         for cat, items in pairs(stored_table) do
             table.insert(categories, cat)
         end
+        update_dropdown(cat_dropdown, categories)
+        local selected_cat = cat_dropdown.getValue()
         if selected_cat == nil then
             selected_cat = { text = categories[1] }
         end
         spatial_ports = stored_table[selected_cat.text]
-        if spatial_ports == nil then
-            spatial_ports = {}
-        end
-        if selected_cat.text == nil then
-            basalt.debug("No category selected")
-        else
-            basalt.debug("cats:" .. #categories .. " ports:" .. #spatial_ports .. " cat:" .. selected_cat.text)
-        end
-        update_dropdown(cat_dropdown, categories)
         update_dropdown(spatial_dropdown, spatial_ports)
         --local val = cat_dropdown.getValue()
         --if val == nil then
