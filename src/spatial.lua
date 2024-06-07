@@ -148,9 +148,9 @@ local function load_spatial_ui()
             basalt.debug("No category selected")
         else
             basalt.debug("cats:" .. #categories .. " ports:" .. #spatial_ports .. " cat:" .. selected_cat.text)
-            update_dropdown(cat_dropdown, categories)
-            update_dropdown(spatial_dropdown, spatial_ports)
         end
+        update_dropdown(cat_dropdown, categories)
+        update_dropdown(spatial_dropdown, spatial_ports)
         --local val = cat_dropdown.getValue()
         --if val == nil then
         --    return
