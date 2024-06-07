@@ -6,7 +6,6 @@ local cat_path = "data/spatial_categories.txt"
 
 local COL1 = 2
 local COL2 = 16
-local COL3 = 30
 
 local function update_dropdown(dropdown, vals)
     local val = dropdown.getValue()
@@ -140,6 +139,7 @@ local function load_spatial_ui()
         end
         if selected_cat == nil then
             selected_cat = { text = categories[1] }
+            basalt.debug("No selected cat!  Defaulting to " .. selected_cat.text)
         end
         spatial_ports = stored_table[selected_cat.text]
         update_dropdown(cat_dropdown, categories)
