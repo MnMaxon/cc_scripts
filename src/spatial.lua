@@ -54,7 +54,7 @@ end
 
 local function pulse()
     redstone.setOutput("right", true)
-    os.sleep(0.05)
+    os.sleep(0.1)
     redstone.setOutput("right", false)
 end
 
@@ -178,11 +178,9 @@ local function load_spatial_ui()
                     basalt.debug("Item not found in storage")
                     return
                 end
-                os.sleep(0.05)
                 storage.pushItems("left", slot)
-                os.sleep(0.05)
+                os.sleep(0.1)
                 pulse()
-                os.sleep(0.05)
                 re_insert_io()
                 load_dropdowns()
             end)
