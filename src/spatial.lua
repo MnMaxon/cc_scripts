@@ -54,7 +54,7 @@ end
 
 local function pulse()
     redstone.setOutput("right", true)
-    os.sleep(0.05)
+    os.sleep(0.2)
     redstone.setOutput("right", false)
 end
 
